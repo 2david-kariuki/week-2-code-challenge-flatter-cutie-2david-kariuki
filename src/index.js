@@ -56,4 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("i was clicked");
     }
   });
+    resetButton.addEventListener("click", () => {
+      totalVotes = 0;
+      voteCount.textContent = totalVotes;
+    });
 });
