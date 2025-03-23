@@ -18,4 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 characterBar.appendChild(span);
             });
         });
+    function displayCharacter(character) {
+      nameElement.textContent = character.name;
+      imageElement.src = character.image;
+      imageElement.alt = character.name;
+      voteCount.textContent = character.votes;
+      imageElement.dataset.id = character.id;
+    }
+
+    votesForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const votesInput = document.getElementById("votes");
+      const newVotes = parseInt(votesInput.value) || 0;
+      const currentVotes = parseInt(voteCount.textContent);
+      voteCount.textContent = currentVotes + newVotes;
+      votesInput.value = "";
+    });
 })
